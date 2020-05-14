@@ -17,9 +17,28 @@
           </tr>
         </thead>
         <tbody>
-          <!-- ここにTodoの要素の<tr>を繰り返し処理 -->
+          <!-- ここに <tr> で ToDo の要素を1行づつ繰り返し表示 -->
+          <tr v-for="task in tasks" v-bind:key="task.id">
+            <th>{{ task.id }}</th>
+            <td>{{ task.task }}</td>
+            <td class="state">
+              <!-- 状態変更ボタンのモック -->
+              <button>{{ task.state }}</button>
+            </td>
+            <td class="button">
+              <!-- 削除ボタンのモック -->
+              <button>削除</button>
+            </td>
+          </tr>
         </tbody>
       </table>
+      <h2>新しいタスクの追加</h2>
+      <form class="add-form" v-on:submit.prevent="doAdd">
+        <!-- コメント入力フォーム -->
+        コメント <input type="text" ref="task">
+        <!-- 追加ボタンのモック -->
+        <button type="submit">追加</button>
+      </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
