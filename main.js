@@ -42,5 +42,16 @@ const app = new Vue({
       // フォーム要素を空にする
       task.value = ''
     }
+  },
+  watch: {
+    //オプションはオブジェクト形式で記述
+    tasks: {
+      //引数はウォッチしているプロパティの変更後の値
+      handler: function(tasks) {
+        taskStorage.save(tasks)
+      },
+      //deepオプションでネストしているデータも監視できる
+      deep: true
+    }
   }
 })
