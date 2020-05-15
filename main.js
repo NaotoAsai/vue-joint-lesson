@@ -41,6 +41,29 @@ const app = new Vue({
       })
       // フォーム要素を空にする
       task.value = ''
+    },
+    doChangeState: function(item) {
+      item.state = item.state ? 0 : 1
+    },
+    doRemove: function(item) {
+      if (confirm(`ID:${item.id}のタスクを本当に削除しますか？`)) {
+        var index = this.tasks.indexOf(item)
+        this.tasks.splice(index,1)
+      }
     }
+  },
+  watch: {
+    //オプションはオブジェクト形式で記述
+    tasks: {
+      //引数はウォッチしているプロパティの変更後の値
+      handler: function(tasks) {
+        taskStorage.save(tasks)
+      },
+      //deepオプションでネストしているデータも監視できる
+      deep: true
+    }
+  },
+  created() {
+    this.tasks = taskStorage.fetch()
   }
 })
