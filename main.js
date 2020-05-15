@@ -41,6 +41,9 @@ const app = new Vue({
       })
       // フォーム要素を空にする
       task.value = ''
+    },
+    doChangeState: function(item) {
+      item.state = item.state ? 0 : 1
     }
   },
   watch: {
