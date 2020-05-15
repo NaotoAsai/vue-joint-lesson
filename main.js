@@ -53,5 +53,8 @@ const app = new Vue({
       //deepオプションでネストしているデータも監視できる
       deep: true
     }
+  },
+  created() {
+    this.tasks = taskStorage.fetch()
   }
 })
