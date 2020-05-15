@@ -44,6 +44,12 @@ const app = new Vue({
     },
     doChangeState: function(item) {
       item.state = item.state ? 0 : 1
+    },
+    doRemove: function(item) {
+      if (confirm(`ID:${item.id}のタスクを本当に削除しますか？`)) {
+        var index = this.tasks.indexOf(item)
+        this.tasks.splice(index,1)
+      }
     }
   },
   watch: {
