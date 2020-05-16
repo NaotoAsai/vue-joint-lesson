@@ -73,5 +73,13 @@ const app = new Vue({
   },
   created() {
     this.tasks = taskStorage.fetch()
+  },
+  computed: {
+    computedTasks: function() {
+      //データcurrentが-1ならすべて、それ以外ならcurrentとstateが一致するものだけに絞り込む
+      return this.tasks.filter(function(el) {
+        return this.current < 0 ? true : this.current === el.state
+      },this)
+    }
   }
 })

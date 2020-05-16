@@ -13,6 +13,9 @@
           v-model="current"
           v-bind:value="label.value">{{ label.label }}
       </label>
+
+      ({{ computedTasks.length }}件を表示中)
+
       <table>
         <thead>
           <tr>
@@ -24,7 +27,7 @@
         </thead>
         <tbody>
           <!-- ここに <tr> で ToDo の要素を1行づつ繰り返し表示 -->
-          <tr v-for="item in tasks" v-bind:key="item.id">
+          <tr v-for="item in computedTasks" v-bind:key="item.id">
             <th>{{ item.id }}</th>
             <td>{{ item.task }}</td>
             <td class="state">
