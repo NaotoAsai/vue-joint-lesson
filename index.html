@@ -32,7 +32,7 @@
             <td>{{ item.task }}</td>
             <td class="state">
               <!-- 状態変更ボタンのモック -->
-              <button v-on:click="doChangeState(item)">{{ item.state }}</button>
+              <button v-on:click="doChangeState(item)">{{ labels[item.state] }}</button>
             </td>
             <td class="button">
               <!-- 削除ボタンのモック -->
