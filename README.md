@@ -7,3 +7,7 @@ https://cr-vue.mio3io.com/tutorials/todo.html
 
 .gitignoreにmemo.mdを追記しました。
 memo.mdはローカルで各々が共同開発時のメモとして使える用のファイルです。
+
+### 気付き
+
+コミットメッセージを機能追加ごとに実施するとキレイ。

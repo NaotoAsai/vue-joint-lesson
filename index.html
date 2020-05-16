@@ -7,6 +7,12 @@
   </head>
   <body>
     <div id="app">
+      <h1>ToDoリスト -猫本共同制作-</h1>
+      <label v-for="label in options">
+        <input type="radio"
+          v-model="current"
+          v-bind:value="label.value">{{ label.label }}
+      </label>
       <table>
         <thead>
           <tr>
