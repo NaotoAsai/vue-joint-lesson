@@ -73,5 +73,20 @@ const app = new Vue({
   },
   created() {
     this.tasks = taskStorage.fetch()
+  },
+  computed: {
+    computedTasks: function() {
+      //データcurrentが-1ならすべて、それ以外ならcurrentとstateが一致するものだけに絞り込む
+      return this.tasks.filter(function(el) {
+        return this.current < 0 ? true : this.current === el.state
+      },this)
+    },
+    labels: function() {
+      return this.options.reduce(function(a,b) {
+        return Object.assign(a,{[b.value]: b.label})
+      },{})
+      //キーから見つけやすいようにデータを加工する
+      //{0: '作業中', 1: '完了', -1: 'すべて'}
+    }
   }
 })
